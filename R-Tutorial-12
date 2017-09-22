@@ -6,11 +6,28 @@ Check that this works with different vectors T. What happens when T has length 1
 trap, it’s preferable to use seq_len, seq_along, or seq.int instead of the 1:n construction used above. This and many other R gotchas are 
 described in the useful R Inferno (Burns 2012).
 
+> When T has length 1, the resulting plot contains a single point. When T has length 0, R is unable to generate a plot, because it is unable 
+   to plot an empty vector. Instead, it returns an error message.
+
 ###################
 12.2.0.0.1 Exercise
 ###################
 
 Verify that the above works as intended. How many iterations are needed?
+
+> By adding a counter, we can keep track of the number of iterations our loop performs:
+
+phi <- 20
+conv <- FALSE
+k <- 1
+while (!conv) {
+  phi.new <- 1+1/phi
+  conv <- phi==phi.new
+  phi <- phi.new
+  k <- k+1
+}
+
+A total of 41 iterations of the loop are performed to compute the Golden Ratio
 
 ###################
 12.2.0.0.2 Exercise
@@ -18,3 +35,4 @@ Verify that the above works as intended. How many iterations are needed?
 
 Recompute the trajectory of the Beverton-Holt model using a while loop. Verify that your answer is exactly equivalent to the one above.
 
+> 
