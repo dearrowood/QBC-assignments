@@ -1,0 +1,20 @@
+###################
+12.1.0.0.2 Exercise
+###################
+
+Check that this works with different vectors T. What happens when T has length 1? What happens when T has length 0? Why? To avoid this 
+trap, it’s preferable to use seq_len, seq_along, or seq.int instead of the 1:n construction used above. This and many other R gotchas are 
+described in the useful R Inferno (Burns 2012).
+
+###################
+12.2.0.0.1 Exercise
+###################
+
+Verify that the above works as intended. How many iterations are needed?
+
+###################
+12.2.0.0.2 Exercise
+###################
+
+Recompute the trajectory of the Beverton-Holt model using a while loop. Verify that your answer is exactly equivalent to the one above.
+
