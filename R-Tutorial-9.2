@@ -8,11 +8,15 @@ Use a command of the form X <- matrix(v,nrow=2,ncol=4) where v is a data vector,
 [1,]    1    1    1    1
 [2,]    2    2    2    2
 
+> x <- matrix(c(1,2,1,2,1,2,1,2),nrow=2,ncol=4)
+
 ##################
 9.2.1.0.2 Exercise
 ##################
 
-Use rnorm and matrix to create a 5×75×7 matrix of Gaussian random numbers with mean 1 and standard deviation 2.
+Use rnorm and matrix to create a 5×7 matrix of Gaussian random numbers with mean 1 and standard deviation 2.
+
+> x <- matrix(rnorm(35, mean = 1, sd = 2),nrow=5,ncol=7)
 
 ##################
 9.2.2.0.1 Exercise
@@ -20,3 +24,4 @@ Use rnorm and matrix to create a 5×75×7 matrix of Gaussian random numbers with
 
 Verify that rbind(C,D) works, cbind(C,C) works, but cbind(C,D) doesn’t. Why not?
 
+> cbind(C,D) would bind together two matrices with a mismatched number of rows, creating an invalid value for a matrix.
