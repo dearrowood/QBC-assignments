@@ -11,9 +11,12 @@
 # Write a function called get_heights to draw a sample of individuals
 # (100 or 1000) from the population.
 
-get_heights <- function(x){
-  mean(rnorm(x,mean=69,sd=10))
+get_heights = function(x){
+  height_dis = rnorm(x,mean=69,sd=10)
+  height_avg = mean(height_dis)       # Ex2 addition
+  return(height_avg)                  # Ex3 addition
 }
+
 get_heights(100)
 get_heights(1000)
 
@@ -67,6 +70,12 @@ for(i in 1:1000){
 # the axes. Plot the data from the 100 samples in red and the data from the 1000 samples in blue.
 # Your plot should look something like the one shown in the exercise directions.
 
-barplot(rbind(mean_heights_100,mean_heights_1000),col=c(2,4),beside=T,names.arg=seq(-10,9.5,by=1),xlab="avg height",ylab="count")
+bins=seq(65,75,by=1)
+
+counts_heights_1000=hist(mean_heights_1000,breaks=bins)$counts
+counts_heights_100=hist(mean_heights_100,breaks=bins)$counts
 
 
+barplot(rbind(counts_heights_1000,counts_heights_100),col=c(2,4),beside=TRUE,xlab="Average height (inches)",ylab="Count")
+
+legend(1,300,c("n=1000","n=100"),col=c(2,4),lwd=4)
